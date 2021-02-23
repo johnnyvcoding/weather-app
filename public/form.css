@@ -1,0 +1,31 @@
+.input-form {
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#input{
+  height: 40px;
+
+}
+
+.measurement {
+  margin-top: 6px;
+  width: 40%;
+  display: block;
+
+}
+.button-cont {
+  /* margin-top: 10px; */
+    margin-left: 1px;
+    height: 39px;
+
+}
+
+.button-cont button{
+  border-radius: 3px;
+  border-color: transparent;
+  height: 100%;
+  background-color: orange;
+}
+

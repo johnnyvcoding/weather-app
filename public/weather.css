@@ -1,0 +1,15 @@
+.single-day-cont {
+  margin-top: 10px;
+  display: flex;
+  justify-content:center;
+}
+
+.day-cont {
+	width: 80%;
+	background-color: white;
+}
+
+
+.temp h1 {
+  font-size: 50px;
+}
