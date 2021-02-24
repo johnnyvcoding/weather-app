@@ -1967,7 +1967,7 @@ function App() {
   }, "Simple Weather"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
     path: "/",
     component: _Form__WEBPACK_IMPORTED_MODULE_1__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AutoCompletePlace__WEBPACK_IMPORTED_MODULE_4__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
     path: "/singleweather",
     component: _DayWeather__WEBPACK_IMPORTED_MODULE_2__.default
   }));
@@ -2119,6 +2119,7 @@ var Auto = /*#__PURE__*/function (_React$Component) {
       this.setState({
         address: event
       });
+      this.props.selectFunc(event);
     }
   }, {
     key: "render",
@@ -2132,17 +2133,20 @@ var Auto = /*#__PURE__*/function (_React$Component) {
             suggestions = _ref.suggestions,
             getSuggestionItemProps = _ref.getSuggestionItemProps,
             loading = _ref.loading;
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", getInputProps({
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", _extends({}, getInputProps({
           placeholder: 'Type Address'
+        }), {
+          className: "input-auto"
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Loading..."), suggestions.map(function (suggestion, index) {
           var style = {
             backgroundColor: suggestion.active ? 'orange' : 'fff'
           };
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", _extends({
-            key: index
-          }, getSuggestionItemProps(suggestion, {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", _extends({}, getSuggestionItemProps(suggestion, {
             style: style
-          })), suggestion.description);
+          }), {
+            key: index,
+            className: "suggestion-item"
+          }), suggestion.description);
         })));
       }));
     }
@@ -2328,8 +2332,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _store_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/reducer */ "./app/store/reducer.js");
 /* harmony import */ var _DayWeather__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DayWeather */ "./app/components/DayWeather.js");
-/* harmony import */ var _conversions_imperial__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../conversions/imperial */ "./app/conversions/imperial.js");
-/* harmony import */ var _conversions_metric__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../conversions/metric */ "./app/conversions/metric.js");
+/* harmony import */ var _AutoCompletePlace__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AutoCompletePlace */ "./app/components/AutoCompletePlace.js");
+/* harmony import */ var _conversions_imperial__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../conversions/imperial */ "./app/conversions/imperial.js");
+/* harmony import */ var _conversions_metric__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../conversions/metric */ "./app/conversions/metric.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -2353,6 +2358,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -2395,6 +2401,7 @@ var Form = /*#__PURE__*/function (_React$Component) {
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleAuto = _this.handleAuto.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2410,6 +2417,13 @@ var Form = /*#__PURE__*/function (_React$Component) {
       this.props.fetchWeather(this.state);
     }
   }, {
+    key: "handleAuto",
+    value: function handleAuto(input) {
+      this.setState({
+        cityName: input
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       if (Object.keys(this.props.weather).length === 0) {
@@ -2417,18 +2431,16 @@ var Form = /*#__PURE__*/function (_React$Component) {
           className: "input-form",
           onSubmit: this.handleSubmit,
           autoComplete: "off"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-          id: "input",
-          type: "text",
-          name: "cityName",
-          placeholder: "Enter Your City's Name",
-          onChange: this.handleChange
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "btn-input"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AutoCompletePlace__WEBPACK_IMPORTED_MODULE_4__.default, {
+          selectFunc: this.handleAuto
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "button-cont"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           type: "submit",
           onSubmit: this.handleSubmit
-        }, "Submit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+        }, "Submit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
           name: "measurement",
           className: "form-select measurement",
           "aria-label": "Default select example",
@@ -2444,12 +2456,8 @@ var Form = /*#__PURE__*/function (_React$Component) {
           className: "input-form",
           onSubmit: this.handleSubmit,
           autoComplete: "off"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-          id: "input",
-          type: "text",
-          name: "cityName",
-          placeholder: "Enter Your City's Name",
-          onChange: this.handleChange
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AutoCompletePlace__WEBPACK_IMPORTED_MODULE_4__.default, {
+          selectFunc: this.handleAuto
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "button-cont"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {

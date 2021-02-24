@@ -11,7 +11,7 @@ function App() {
 			<h1 id='name-header'>Simple Weather</h1>
 			<Route path='/' component={Form} />
 			{/* <AutoComplete /> */}
-			<Auto />
+			{/* <Auto /> */}
 			<Route path='/singleweather' component={DayWeather} />
 		</div>
 	);

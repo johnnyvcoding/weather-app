@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchWeather } from '../store/reducer';
 import DayWeather from './DayWeather';
+import Auto from './AutoCompletePlace';
 import imperial from '../conversions/imperial';
 import metric from '../conversions/metric';
 
@@ -29,6 +30,7 @@ class Form extends React.Component {
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleAuto = this.handleAuto.bind(this);
 	}
 
 	handleChange(e) {
@@ -42,6 +44,10 @@ class Form extends React.Component {
 		this.props.fetchWeather(this.state);
 	}
 
+	handleAuto(input) {
+		this.setState({ cityName: input });
+	}
+
 	render() {
 		if (Object.keys(this.props.weather).length === 0) {
 			return (
@@ -51,19 +57,16 @@ class Form extends React.Component {
 						onSubmit={this.handleSubmit}
 						autoComplete='off'
 					>
-						<input
-							id='input'
-							type='text'
-							name='cityName'
-							placeholder="Enter Your City's Name"
-							onChange={this.handleChange}
-						/>
+						<div className='btn-input'>
+							<Auto selectFunc={this.handleAuto} />
 
-						<div className='button-cont'>
-							<button type='submit' onSubmit={this.handleSubmit}>
-								Submit
-							</button>
+							<div className='button-cont'>
+								<button type='submit' onSubmit={this.handleSubmit}>
+									Submit
+								</button>
+							</div>
 						</div>
+
 						<select
 							name='measurement'
 							className='form-select measurement'
@@ -86,13 +89,7 @@ class Form extends React.Component {
 						onSubmit={this.handleSubmit}
 						autoComplete='off'
 					>
-						<input
-							id='input'
-							type='text'
-							name='cityName'
-							placeholder="Enter Your City's Name"
-							onChange={this.handleChange}
-						/>
+						<Auto selectFunc={this.handleAuto} />
 
 						<div className='button-cont'>
 							<button type='submit'>Submit</button>

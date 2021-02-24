@@ -24,9 +24,9 @@ class Auto extends React.Component {
 
 	handleSelect(event) {
 		console.log(event);
-    this.setState({address: event})
+		this.setState({ address: event });
+		this.props.selectFunc(event);
 	}
-
 
 	render() {
 		return (
@@ -43,7 +43,10 @@ class Auto extends React.Component {
 						loading,
 					}) => (
 						<div>
-							<input {...getInputProps({ placeholder: 'Type Address' })} />
+							<input
+								{...getInputProps({ placeholder: 'Type Address' })}
+								className='input-auto'
+							/>
 							<div>
 								{loading && <div>Loading...</div>}
 								{suggestions.map((suggestion, index) => {
@@ -53,8 +56,9 @@ class Auto extends React.Component {
 
 									return (
 										<div
-											key={index}
 											{...getSuggestionItemProps(suggestion, { style })}
+											key={index}
+											className='suggestion-item'
 										>
 											{suggestion.description}
 										</div>
