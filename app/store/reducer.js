@@ -23,11 +23,11 @@ function displayWeather(data) {
 	};
 }
 
-export function showWeather() {
-	return (dispatch) => {
-		dispatch(displayWeather());
-	};
-}
+// export function showWeather() {
+// 	return (dispatch) => {
+// 		dispatch(displayWeather());
+// 	};
+// }
 
 export function fetchWeather(formData) {
 	console.log('we hit here');
@@ -36,6 +36,7 @@ export function fetchWeather(formData) {
 			let cityName = formData.cityName;
 			let data = axios.get(`/api/${cityName}`);
 			data.then((response) => dispatch(setWeather(response.data)));
+			// data.then((response) => dispatch(displayWeather(response.data)))
 		} catch (e) {
 			console.log(e);
 		}
@@ -49,7 +50,7 @@ function singleDayReducer(state = initialState, action) {
 			return { ...state, weather: action.weather };
 		case DISPLAY_WEATHER:
 			console.log('this ccall from red, ', state);
-			break;
+			return state;
 		default:
 			return state;
 	}

@@ -7,8 +7,8 @@ function App() {
 	return (
 		<div className='App'>
 			<h1 id='name-header'>Simple Weather</h1>
-			<Form />
-			{/* <Route exact path="/singleweather" component={DayWeather} /> */}
+			<Route  path="/" component={Form} />
+			<Route  path="/singleweather" component={DayWeather} />
 		</div>
 	);
 }

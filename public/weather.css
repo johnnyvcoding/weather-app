@@ -1,7 +1,7 @@
 .single-day-cont {
-  margin-top: 10px;
-  display: flex;
-  justify-content:center;
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
 }
 
 .day-cont {
@@ -9,7 +9,7 @@
 	background-color: white;
 }
 
+.temp span {
 
-.temp h1 {
-  font-size: 50px;
+	font-size: 50px;
 }
