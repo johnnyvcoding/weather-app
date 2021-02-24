@@ -1947,11 +1947,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./app/components/Form.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _DayWeather__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DayWeather */ "./app/components/DayWeather.js");
-/* harmony import */ var _AutoComplete__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AutoComplete */ "./app/components/AutoComplete.js");
-/* harmony import */ var _AutoCompletePlace__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AutoCompletePlace */ "./app/components/AutoCompletePlace.js");
+/* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Navbar */ "./app/components/Navbar.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Form */ "./app/components/Form.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _DayWeather__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DayWeather */ "./app/components/DayWeather.js");
+/* harmony import */ var _AutoComplete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AutoComplete */ "./app/components/AutoComplete.js");
+/* harmony import */ var _AutoCompletePlace__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AutoCompletePlace */ "./app/components/AutoCompletePlace.js");
+
 
 
 
@@ -1962,14 +1964,14 @@ __webpack_require__.r(__webpack_exports__);
 function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "App"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
     id: "name-header"
-  }, "Simple Weather"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+  }, "Simple Weather"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     path: "/",
-    component: _Form__WEBPACK_IMPORTED_MODULE_1__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+    component: _Form__WEBPACK_IMPORTED_MODULE_2__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     path: "/singleweather",
-    component: _DayWeather__WEBPACK_IMPORTED_MODULE_2__.default
+    component: _DayWeather__WEBPACK_IMPORTED_MODULE_3__.default
   }));
 }
 
@@ -2137,7 +2139,9 @@ var Auto = /*#__PURE__*/function (_React$Component) {
           placeholder: 'Type Address'
         }), {
           className: "input-auto"
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Loading..."), suggestions.map(function (suggestion, index) {
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "suggestions-cont"
+        }, loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Loading..."), suggestions.map(function (suggestion, index) {
           var style = {
             backgroundColor: suggestion.active ? 'orange' : 'fff'
           };
@@ -2456,13 +2460,16 @@ var Form = /*#__PURE__*/function (_React$Component) {
           className: "input-form",
           onSubmit: this.handleSubmit,
           autoComplete: "off"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "btn-input"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AutoCompletePlace__WEBPACK_IMPORTED_MODULE_4__.default, {
           selectFunc: this.handleAuto
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "button-cont"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          type: "submit"
-        }, "Submit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+          type: "submit",
+          onSubmit: this.handleSubmit
+        }, "Submit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
           name: "measurement",
           className: "form-select measurement",
           "aria-label": "Default select example",
@@ -2484,6 +2491,51 @@ var Form = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapState, mapDispatch)(Form));
+
+/***/ }),
+
+/***/ "./app/components/Navbar.js":
+/*!**********************************!*\
+  !*** ./app/components/Navbar.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+function Navbar() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "pos-f-t"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "collapse",
+    id: "navbarToggleExternalContent"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "bg-dark p-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+    className: "text-white"
+  }, "Collapsed content"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+    className: "text-muted"
+  }, "Toggleable via the navbar brand."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
+    className: "navbar navbar-dark bg-dark"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: "navbar-toggler",
+    type: "button",
+    "data-toggle": "collapse",
+    "data-target": "#navbarToggleExternalContent",
+    "aria-controls": "navbarToggleExternalContent",
+    "aria-expanded": "false",
+    "aria-label": "Toggle navigation"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+    className: "navbar-toggler-icon"
+  }))));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Navbar);
 
 /***/ }),
 

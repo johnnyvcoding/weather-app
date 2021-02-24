@@ -47,7 +47,7 @@ class Auto extends React.Component {
 								{...getInputProps({ placeholder: 'Type Address' })}
 								className='input-auto'
 							/>
-							<div>
+							<div className="suggestions-cont">
 								{loading && <div>Loading...</div>}
 								{suggestions.map((suggestion, index) => {
 									const style = {

@@ -1,6 +1,8 @@
 .input-form {
   display:flex;
-  justify-content: center;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -22,24 +24,34 @@
 
 }
 
+.btn-input {
+  display: flex;
+}
+
 .button-cont button{
   border-radius: 3px;
   border-color: transparent;
   height: 100%;
+
   background-color: orange;
 }
 
-
+.suggestions-cont {
+  position:absolute
+}
 
 .suggestion-item {
   padding: 2px;
   background-color: white;
   border-top: 1px solid grey;
   text-align: left;
-  max-width: 100%;
+  width: 18rem;
+  max-width: 18rem;
 }
 
 
 .input-auto {
+
   height: 38px;
+  width: 18rem;
 }

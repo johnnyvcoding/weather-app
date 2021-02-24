@@ -89,11 +89,16 @@ class Form extends React.Component {
 						onSubmit={this.handleSubmit}
 						autoComplete='off'
 					>
-						<Auto selectFunc={this.handleAuto} />
+						<div className='btn-input'>
+							<Auto selectFunc={this.handleAuto} />
 
-						<div className='button-cont'>
-							<button type='submit'>Submit</button>
+							<div className='button-cont'>
+								<button type='submit' onSubmit={this.handleSubmit}>
+									Submit
+								</button>
+							</div>
 						</div>
+
 						<select
 							name='measurement'
 							className='form-select measurement'
