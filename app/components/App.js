@@ -1,14 +1,18 @@
 import React from 'react';
 import Form from './Form';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import DayWeather from './DayWeather'
+import DayWeather from './DayWeather';
+import AutoComplete from './AutoComplete';
+import Auto from './AutoCompletePlace'
 
 function App() {
 	return (
 		<div className='App'>
 			<h1 id='name-header'>Simple Weather</h1>
-			<Route  path="/" component={Form} />
-			<Route  path="/singleweather" component={DayWeather} />
+			<Route path='/' component={Form} />
+			{/* <AutoComplete /> */}
+			<Auto />
+			<Route path='/singleweather' component={DayWeather} />
 		</div>
 	);
 }
