@@ -5,8 +5,8 @@ function Navbar() {
 		<div className='pos-f-t'>
 			<div className='collapse' id='navbarToggleExternalContent'>
 				<div className='bg-dark p-4'>
-					<h4 className='text-white'>Collapsed content</h4>
-					<span className='text-muted'>Toggleable via the navbar brand.</span>
+					<h4 className='text-white'>Te quiero mucho, darianita &#60;3</h4>
+					<span className='text-muted'>Thank you for being such an amazing person</span>
 				</div>
 			</div>
 			<nav className='navbar navbar-dark bg-dark'>

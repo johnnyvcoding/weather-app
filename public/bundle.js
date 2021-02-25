@@ -2518,9 +2518,9 @@ function Navbar() {
     className: "bg-dark p-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
     className: "text-white"
-  }, "Collapsed content"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+  }, "Te quiero mucho, darianita <3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: "text-muted"
-  }, "Toggleable via the navbar brand."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
+  }, "Thank you for being such an amazing person"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
     className: "navbar navbar-dark bg-dark"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     className: "navbar-toggler",
@@ -2686,9 +2686,11 @@ function displayWeather(data) {
 
 function fetchWeather(formData) {
   console.log('we hit here');
+  console.log('this is the form data: ', formData);
   return function (dispatch) {
     try {
       var cityName = formData.cityName;
+      console.log('this is the call from store', cityName);
       var data = axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/".concat(cityName));
       data.then(function (response) {
         return dispatch(setWeather(response.data));
