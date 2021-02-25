@@ -17,13 +17,13 @@ class Auto extends React.Component {
 	}
 
 	handleChange(value) {
-		// console.log('this is the event', value);
 		this.setState({ address: this.state.value + value });
-		// console.log(this.state);
+		setTimeout(() => {
+			this.props.handleInput(this.state.address);
+		}, 100);
 	}
 
 	handleSelect(event) {
-		console.log(event);
 		this.setState({ address: event });
 		this.props.selectFunc(event);
 	}
@@ -47,7 +47,7 @@ class Auto extends React.Component {
 								{...getInputProps({ placeholder: 'Type Address' })}
 								className='input-auto'
 							/>
-							<div className="suggestions-cont">
+							<div className='suggestions-cont'>
 								{loading && <div>Loading...</div>}
 								{suggestions.map((suggestion, index) => {
 									const style = {

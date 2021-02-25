@@ -2109,15 +2109,18 @@ var Auto = /*#__PURE__*/function (_React$Component) {
   _createClass(Auto, [{
     key: "handleChange",
     value: function handleChange(value) {
-      // console.log('this is the event', value);
+      var _this2 = this;
+
       this.setState({
         address: this.state.value + value
-      }); // console.log(this.state);
+      });
+      setTimeout(function () {
+        _this2.props.handleInput(_this2.state.address);
+      }, 100);
     }
   }, {
     key: "handleSelect",
     value: function handleSelect(event) {
-      console.log(event);
       this.setState({
         address: event
       });
@@ -2406,10 +2409,19 @@ var Form = /*#__PURE__*/function (_React$Component) {
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleAuto = _this.handleAuto.bind(_assertThisInitialized(_this));
+    _this.handleInput = _this.handleInput.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Form, [{
+    key: "handleInput",
+    value: function handleInput(input) {
+      console.log('this is the input: ', input);
+      this.setState({
+        cityName: input
+      });
+    }
+  }, {
     key: "handleChange",
     value: function handleChange(e) {
       this.setState(_defineProperty({}, e.target.name, e.target.value));
@@ -2438,7 +2450,8 @@ var Form = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "btn-input"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AutoCompletePlace__WEBPACK_IMPORTED_MODULE_4__.default, {
-          selectFunc: this.handleAuto
+          selectFunc: this.handleAuto,
+          handleInput: this.handleInput
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "button-cont"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -2463,7 +2476,8 @@ var Form = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "btn-input"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AutoCompletePlace__WEBPACK_IMPORTED_MODULE_4__.default, {
-          selectFunc: this.handleAuto
+          selectFunc: this.handleAuto,
+          handleInput: this.handleInput
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "button-cont"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {

@@ -31,6 +31,12 @@ class Form extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleAuto = this.handleAuto.bind(this);
+		this.handleInput = this.handleInput.bind(this);
+	}
+
+	handleInput(input) {
+		console.log('this is the input: ', input)
+		this.setState({ cityName: input });
 	}
 
 	handleChange(e) {
@@ -58,7 +64,10 @@ class Form extends React.Component {
 						autoComplete='off'
 					>
 						<div className='btn-input'>
-							<Auto selectFunc={this.handleAuto} />
+							<Auto
+								selectFunc={this.handleAuto}
+								handleInput={this.handleInput}
+							/>
 
 							<div className='button-cont'>
 								<button type='submit' onSubmit={this.handleSubmit}>
@@ -90,7 +99,10 @@ class Form extends React.Component {
 						autoComplete='off'
 					>
 						<div className='btn-input'>
-							<Auto selectFunc={this.handleAuto} />
+							<Auto
+								selectFunc={this.handleAuto}
+								handleInput={this.handleInput}
+							/>
 
 							<div className='button-cont'>
 								<button type='submit' onSubmit={this.handleSubmit}>
