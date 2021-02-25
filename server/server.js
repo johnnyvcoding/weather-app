@@ -13,7 +13,7 @@ app.use('/api', require('./routes/router'));
 
 //will send those files to any route that lands on our page;
 app.get('*', function (req, res, next) {
-	res.sendFile(path.join(__dirname, '..', '/public'));
+	res.sendFile(path.join(__dirname, '..', '/index.html'));
 });
 
 //redirect if route does not exist
