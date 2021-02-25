@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const morgan = require('morgan');
-
+const PORT = process.env.PORT || 1338
 // logging middle ware
 app.use(morgan('dev'));
 
@@ -21,4 +21,4 @@ app.use(function (req, res, next) {
 	res.redirect('/');
 });
 
-app.listen(1338);
+app.listen(PORT);
