@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 // require('dotenv').config();
 
-let apiKey = process.env.API_KEY || 'your api key here';
+let apiKey = process.env.API_KEY || '5e8a7482c3d4d11d64c6379e1b2b50be';
 
 //call to OpenWeatherApi
 
