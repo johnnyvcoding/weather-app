@@ -19,7 +19,15 @@ router.get('/:cityName', async (req, res, next) => {
 		res.json(data);
 	} catch (e) {
 		console.log('Oops Something Wrong: ', e);
-		next(e);
+		let error = {
+			data: 'The location you have provided is incorrect or it is not a city.'
+		}
+
+		res.json(error)
+
+
+
+		// next(e);
 	}
 });
 

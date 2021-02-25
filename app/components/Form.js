@@ -1,12 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchWeather } from '../store/reducer';
 import DayWeather from './DayWeather';
 import Auto from './AutoCompletePlace';
-import imperial from '../conversions/imperial';
-import metric from '../conversions/metric';
+import DisplayError from './Error';
 
 function mapState(state) {
 	return {
@@ -35,7 +32,7 @@ class Form extends React.Component {
 	}
 
 	handleInput(input) {
-		console.log('this is the input: ', input)
+		console.log('this is the input: ', input);
 		this.setState({ cityName: input });
 	}
 
@@ -90,7 +87,8 @@ class Form extends React.Component {
 					</form>
 				</div>
 			);
-		} else {
+			//checking if the data we get back form the server is reliable
+		} else if (Object.keys(this.props.weather).length > 3) {
 			return (
 				<div>
 					<form
@@ -127,6 +125,42 @@ class Form extends React.Component {
 						weather={this.props.weather}
 						measure={this.state.measurement}
 					/>
+				</div>
+			);
+		} else {
+			return (
+				<div>
+					<form
+						className='input-form'
+						onSubmit={this.handleSubmit}
+						autoComplete='off'
+					>
+						<div className='btn-input'>
+							<Auto
+								selectFunc={this.handleAuto}
+								handleInput={this.handleInput}
+							/>
+
+							<div className='button-cont'>
+								<button type='submit' onSubmit={this.handleSubmit}>
+									Submit
+								</button>
+							</div>
+						</div>
+
+						<select
+							name='measurement'
+							className='form-select measurement'
+							aria-label='Default select example'
+							onChange={this.handleChange}
+						>
+							<option defaultValue value='fahrenheit'>
+								Fahrenheit
+							</option>
+							<option value='celcius'>Celcius</option>
+						</select>
+					</form>
+					<DisplayError data={this.props.weather.data} />
 				</div>
 			);
 		}

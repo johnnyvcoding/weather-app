@@ -2252,9 +2252,7 @@ var DayWeather = /*#__PURE__*/function (_React$Component) {
         this.setState({
           imperialData: imperialData
         });
-      } // console.log('this are the props: ', this.props)
-      // console.log('this are the PREVIOUS props: ', prevProps)
-
+      }
     }
   }, {
     key: "componentDidMount",
@@ -2324,6 +2322,32 @@ var DayWeather = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./app/components/Error.js":
+/*!*********************************!*\
+  !*** ./app/components/Error.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+function displayError(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "error-cont"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "error"
+  }, props.data));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayError);
+
+/***/ }),
+
 /***/ "./app/components/Form.js":
 /*!********************************!*\
   !*** ./app/components/Form.js ***!
@@ -2340,8 +2364,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/reducer */ "./app/store/reducer.js");
 /* harmony import */ var _DayWeather__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DayWeather */ "./app/components/DayWeather.js");
 /* harmony import */ var _AutoCompletePlace__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AutoCompletePlace */ "./app/components/AutoCompletePlace.js");
-/* harmony import */ var _conversions_imperial__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../conversions/imperial */ "./app/conversions/imperial.js");
-/* harmony import */ var _conversions_metric__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../conversions/metric */ "./app/conversions/metric.js");
+/* harmony import */ var _Error__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Error */ "./app/components/Error.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -2365,9 +2388,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
 
 
 
@@ -2467,8 +2487,8 @@ var Form = /*#__PURE__*/function (_React$Component) {
           value: "fahrenheit"
         }, "Fahrenheit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
           value: "celcius"
-        }, "Celcius"))));
-      } else {
+        }, "Celcius")))); //checking if the data we get back form the server is reliable
+      } else if (Object.keys(this.props.weather).length > 3) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
           className: "input-form",
           onSubmit: this.handleSubmit,
@@ -2496,6 +2516,34 @@ var Form = /*#__PURE__*/function (_React$Component) {
         }, "Celcius"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_DayWeather__WEBPACK_IMPORTED_MODULE_3__.default, {
           weather: this.props.weather,
           measure: this.state.measurement
+        }));
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+          className: "input-form",
+          onSubmit: this.handleSubmit,
+          autoComplete: "off"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "btn-input"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AutoCompletePlace__WEBPACK_IMPORTED_MODULE_4__.default, {
+          selectFunc: this.handleAuto,
+          handleInput: this.handleInput
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "button-cont"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          type: "submit",
+          onSubmit: this.handleSubmit
+        }, "Submit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+          name: "measurement",
+          className: "form-select measurement",
+          "aria-label": "Default select example",
+          onChange: this.handleChange
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+          defaultValue: true,
+          value: "fahrenheit"
+        }, "Fahrenheit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+          value: "celcius"
+        }, "Celcius"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Error__WEBPACK_IMPORTED_MODULE_5__.default, {
+          data: this.props.weather.data
         }));
       }
     }
@@ -2706,10 +2754,12 @@ function fetchWeather(formData) {
       var cityName = formData.cityName;
       console.log('this is the call from store', cityName);
       var data = axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/".concat(cityName));
+      console.log('we passed data');
       data.then(function (response) {
         return dispatch(setWeather(response.data));
       }); // data.then((response) => dispatch(displayWeather(response.data)))
     } catch (e) {
+      console.log('went wrong in reduc');
       console.log(e);
     }
   };

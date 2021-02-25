@@ -31,15 +31,17 @@ function displayWeather(data) {
 
 export function fetchWeather(formData) {
 	console.log('we hit here');
-	console.log('this is the form data: ', formData)
+	console.log('this is the form data: ', formData);
 	return (dispatch) => {
 		try {
 			let cityName = formData.cityName;
-			console.log('this is the call from store', cityName)
+			console.log('this is the call from store', cityName);
 			let data = axios.get(`/api/${cityName}`);
+			console.log('we passed data');
 			data.then((response) => dispatch(setWeather(response.data)));
 			// data.then((response) => dispatch(displayWeather(response.data)))
 		} catch (e) {
+			console.log('went wrong in reduc');
 			console.log(e);
 		}
 	};

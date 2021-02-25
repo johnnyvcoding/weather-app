@@ -34,8 +34,7 @@ class DayWeather extends React.Component {
 			this.setState({ imperialData: imperialData });
 		}
 
-		// console.log('this are the props: ', this.props)
-		// console.log('this are the PREVIOUS props: ', prevProps)
+
 	}
 
 	componentDidMount() {
