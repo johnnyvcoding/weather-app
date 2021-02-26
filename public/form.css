@@ -51,15 +51,3 @@
 	width: 18rem;
 }
 
-.error-cont {
-	margin-top: 10px;
-	display: flex;
-	justify-content: center;
-}
-
-.error {
-  width: 80%;
-  text-align: center;
-  background-color: rgb(238, 20, 20);
-  font-size: xx-large;
-}

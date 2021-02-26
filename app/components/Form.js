@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchWeather } from '../store/reducer';
+import { fetchWeather, clearState } from '../store/reducer';
 import DayWeather from './DayWeather';
 import Auto from './AutoCompletePlace';
 import DisplayError from './Error';
@@ -14,6 +14,7 @@ function mapState(state) {
 function mapDispatch(dispatch) {
 	return {
 		fetchWeather: (formData) => dispatch(fetchWeather(formData)),
+		clearState: () => dispatch(clearState()),
 	};
 }
 
@@ -24,16 +25,23 @@ class Form extends React.Component {
 			cityName: '',
 			measurement: 'fahrenheit',
 			data: {},
+			error: true,
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleAuto = this.handleAuto.bind(this);
 		this.handleInput = this.handleInput.bind(this);
+		this.handleError = this.handleError.bind(this);
+
+		this.refresh = false;
 	}
 
 	handleInput(input) {
 		console.log('this is the input: ', input);
 		this.setState({ cityName: input });
+	}
+	handleError(event) {
+		this.props.clearState();
 	}
 
 	handleChange(e) {
@@ -160,7 +168,10 @@ class Form extends React.Component {
 							<option value='celcius'>Celcius</option>
 						</select>
 					</form>
-					<DisplayError data={this.props.weather.data} />
+					<DisplayError
+						data={this.props.weather.data}
+						handleError={this.handleError}
+					/>
 				</div>
 			);
 		}

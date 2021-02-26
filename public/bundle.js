@@ -1949,12 +1949,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Navbar */ "./app/components/Navbar.js");
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Form */ "./app/components/Form.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _DayWeather__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DayWeather */ "./app/components/DayWeather.js");
-/* harmony import */ var _AutoComplete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AutoComplete */ "./app/components/AutoComplete.js");
-/* harmony import */ var _AutoCompletePlace__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AutoCompletePlace */ "./app/components/AutoCompletePlace.js");
-
-
 
 
 
@@ -1966,83 +1962,16 @@ function App() {
     className: "App"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
     id: "name-header"
-  }, "Simple Weather"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }, "Simple Weather"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
     path: "/",
     component: _Form__WEBPACK_IMPORTED_MODULE_2__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
     path: "/singleweather",
     component: _DayWeather__WEBPACK_IMPORTED_MODULE_3__.default
   }));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
-
-/***/ }),
-
-/***/ "./app/components/AutoComplete.js":
-/*!****************************************!*\
-  !*** ./app/components/AutoComplete.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_places_autocomplete__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-places-autocomplete */ "./node_modules/react-places-autocomplete/dist/index.js");
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-function AutoComplete() {
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(''),
-      _React$useState2 = _slicedToArray(_React$useState, 2),
-      address = _React$useState2[0],
-      setAddress = _React$useState2[1];
-
-  var handleSelect = function handleSelect(value) {};
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_places_autocomplete__WEBPACK_IMPORTED_MODULE_1__.default, {
-    value: address,
-    onChange: setAddress,
-    onSelect: handleSelect
-  }, function (_ref) {
-    var getInputProps = _ref.getInputProps,
-        suggestions = _ref.suggestions,
-        getSuggestionItemProps = _ref.getSuggestionItemProps,
-        loading = _ref.loading;
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", getInputProps({
-      placeholder: 'Type Address'
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Loading..."), suggestions.map(function (suggestion, index) {
-      var style = {
-        backgroundColor: suggestion.active ? "orange" : "fff"
-      };
-      console.log(style);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", _extends({
-        key: index
-      }, getSuggestionItemProps(suggestion, {
-        style: style
-      })), suggestion.description);
-    })));
-  }));
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AutoComplete);
 
 /***/ }),
 
@@ -2336,15 +2265,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 
-function displayError(props) {
+function DisplayError(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "error-cont"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "divider"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    onClick: props.handleError
+  }, "X")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "error"
   }, props.data));
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayError);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DisplayError);
 
 /***/ }),
 
@@ -2406,6 +2339,9 @@ function mapDispatch(dispatch) {
   return {
     fetchWeather: function fetchWeather(formData) {
       return dispatch((0,_store_reducer__WEBPACK_IMPORTED_MODULE_2__.fetchWeather)(formData));
+    },
+    clearState: function clearState() {
+      return dispatch((0,_store_reducer__WEBPACK_IMPORTED_MODULE_2__.clearState)());
     }
   };
 }
@@ -2424,12 +2360,15 @@ var Form = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       cityName: '',
       measurement: 'fahrenheit',
-      data: {}
+      data: {},
+      error: true
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleAuto = _this.handleAuto.bind(_assertThisInitialized(_this));
     _this.handleInput = _this.handleInput.bind(_assertThisInitialized(_this));
+    _this.handleError = _this.handleError.bind(_assertThisInitialized(_this));
+    _this.refresh = false;
     return _this;
   }
 
@@ -2440,6 +2379,11 @@ var Form = /*#__PURE__*/function (_React$Component) {
       this.setState({
         cityName: input
       });
+    }
+  }, {
+    key: "handleError",
+    value: function handleError(event) {
+      this.props.clearState();
     }
   }, {
     key: "handleChange",
@@ -2543,7 +2487,8 @@ var Form = /*#__PURE__*/function (_React$Component) {
         }, "Fahrenheit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
           value: "celcius"
         }, "Celcius"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Error__WEBPACK_IMPORTED_MODULE_5__.default, {
-          data: this.props.weather.data
+          data: this.props.weather.data,
+          handleError: this.handleError
         }));
       }
     }
@@ -2708,6 +2653,7 @@ function simplifyData(dataObj) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "clearState": () => (/* binding */ clearState),
 /* harmony export */   "fetchWeather": () => (/* binding */ fetchWeather),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
@@ -2725,7 +2671,7 @@ var initialState = {
 }; //action type
 
 var GET_WEATHER = 'GET_WEATHER';
-var DISPLAY_WEATHER = 'DISPLAY_WEATHER'; //action creator
+var RESET_WEATHER = 'RESET_WEATHER'; //action creator
 
 function setWeather(weather) {
   return {
@@ -2734,18 +2680,17 @@ function setWeather(weather) {
   };
 }
 
-function displayWeather(data) {
+function resetWeather() {
   return {
-    type: DISPLAY_WEATHER,
-    data: data
+    type: RESET_WEATHER
   };
-} // export function showWeather() {
-// 	return (dispatch) => {
-// 		dispatch(displayWeather());
-// 	};
-// }
+}
 
-
+function clearState() {
+  return function (dispatch) {
+    dispatch(resetWeather());
+  };
+}
 function fetchWeather(formData) {
   console.log('we hit here');
   console.log('this is the form data: ', formData);
@@ -2757,7 +2702,7 @@ function fetchWeather(formData) {
       console.log('we passed data');
       data.then(function (response) {
         return dispatch(setWeather(response.data));
-      }); // data.then((response) => dispatch(displayWeather(response.data)))
+      });
     } catch (e) {
       console.log('went wrong in reduc');
       console.log(e);
@@ -2775,9 +2720,8 @@ function singleDayReducer() {
         weather: action.weather
       });
 
-    case DISPLAY_WEATHER:
-      console.log('this ccall from red, ', state);
-      return state;
+    case RESET_WEATHER:
+      return initialState;
 
     default:
       return state;
