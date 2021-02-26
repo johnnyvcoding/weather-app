@@ -57,6 +57,8 @@ class DayWeather extends React.Component {
 				return 'clouds';
 			case 'rain':
 				return 'rainy';
+			case 'mist':
+				return 'mist';
 			default:
 				return '';
 		}

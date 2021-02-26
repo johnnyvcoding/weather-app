@@ -36,12 +36,17 @@
 	color: white;
 }
 
+.mist {
+	background-image: url('images/mist.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 .day-cont {
 	width: 80%;
 	/* background-color: white; */
 	border: 2px solid orange;
-
-
 }
 
 .temp span {

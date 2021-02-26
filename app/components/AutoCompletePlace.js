@@ -56,7 +56,7 @@ class Auto extends React.Component {
 
 									return (
 										<div
-											{...getSuggestionItemProps(suggestion, { style })}
+											{...getSuggestionItemProps(suggestion)}
 											key={index}
 											className='suggestion-item'
 										>

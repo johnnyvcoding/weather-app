@@ -2077,9 +2077,7 @@ var Auto = /*#__PURE__*/function (_React$Component) {
           var style = {
             backgroundColor: suggestion.active ? 'orange' : 'fff'
           };
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", _extends({}, getSuggestionItemProps(suggestion, {
-            style: style
-          }), {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", _extends({}, getSuggestionItemProps(suggestion), {
             key: index,
             className: "suggestion-item"
           }), suggestion.description);
@@ -2213,6 +2211,9 @@ var DayWeather = /*#__PURE__*/function (_React$Component) {
 
         case 'rain':
           return 'rainy';
+
+        case 'mist':
+          return 'mist';
 
         default:
           return '';
