@@ -2710,19 +2710,14 @@ function clearState() {
   };
 }
 function fetchWeather(formData) {
-  console.log('we hit here');
-  console.log('this is the form data: ', formData);
   return function (dispatch) {
     try {
       var cityName = formData.cityName;
-      console.log('this is the call from store', cityName);
       var data = axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/".concat(cityName));
-      console.log('we passed data');
       data.then(function (response) {
         return dispatch(setWeather(response.data));
       });
     } catch (e) {
-      console.log('went wrong in reduc');
       console.log(e);
     }
   };

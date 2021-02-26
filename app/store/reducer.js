@@ -22,24 +22,21 @@ function resetWeather() {
 	};
 }
 
-export function clearState () {
+export function clearState() {
 	return (dispatch) => {
-		dispatch(resetWeather())
-	}
+		dispatch(resetWeather());
+	};
 }
 
 export function fetchWeather(formData) {
-	console.log('we hit here');
-	console.log('this is the form data: ', formData);
 	return (dispatch) => {
 		try {
 			let cityName = formData.cityName;
-			console.log('this is the call from store', cityName);
+
 			let data = axios.get(`/api/${cityName}`);
-			console.log('we passed data');
+
 			data.then((response) => dispatch(setWeather(response.data)));
 		} catch (e) {
-			console.log('went wrong in reduc');
 			console.log(e);
 		}
 	};
