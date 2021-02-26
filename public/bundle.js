@@ -2200,6 +2200,25 @@ var DayWeather = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "setClass",
+    value: function setClass() {
+      var data = this.props.weather;
+
+      switch (data.weather[0].main.toLowerCase()) {
+        case 'clear':
+          return 'clear-sky';
+
+        case 'clouds':
+          return 'clouds';
+
+        case 'rain':
+          return 'rainy';
+
+        default:
+          return '';
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       if (this.props.measure === 'fahrenheit') {
@@ -2207,7 +2226,7 @@ var DayWeather = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "single-day-cont"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "day-cont"
+          className: 'day-cont' + ' ' + this.setClass()
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "city-name"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, data.cityName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2226,7 +2245,7 @@ var DayWeather = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "single-day-cont"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "day-cont"
+          className: 'day-cont' + ' ' + this.setClass()
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "city-name"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, _data.cityName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2360,8 +2379,7 @@ var Form = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       cityName: '',
       measurement: 'fahrenheit',
-      data: {},
-      error: true
+      data: {}
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -2375,7 +2393,6 @@ var Form = /*#__PURE__*/function (_React$Component) {
   _createClass(Form, [{
     key: "handleInput",
     value: function handleInput(input) {
-      console.log('this is the input: ', input);
       this.setState({
         cityName: input
       });
@@ -2525,9 +2542,9 @@ function Navbar() {
     className: "bg-dark p-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
     className: "text-white"
-  }, "Te quiero mucho, darianita <3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+  }, "Hello World"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: "text-muted"
-  }, "Thank you for being such an amazing person"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
+  }, "Created By Johnny Vazquez"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
     className: "navbar navbar-dark bg-dark"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     className: "navbar-toggler",

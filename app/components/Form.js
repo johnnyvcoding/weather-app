@@ -25,7 +25,6 @@ class Form extends React.Component {
 			cityName: '',
 			measurement: 'fahrenheit',
 			data: {},
-			error: true,
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,7 +36,6 @@ class Form extends React.Component {
 	}
 
 	handleInput(input) {
-		console.log('this is the input: ', input);
 		this.setState({ cityName: input });
 	}
 	handleError(event) {

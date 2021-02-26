@@ -33,8 +33,6 @@ class DayWeather extends React.Component {
 			let imperialData = imperial(this.props.weather);
 			this.setState({ imperialData: imperialData });
 		}
-
-
 	}
 
 	componentDidMount() {
@@ -50,12 +48,26 @@ class DayWeather extends React.Component {
 		}
 	}
 
+	setClass() {
+		let data = this.props.weather;
+		switch (data.weather[0].main.toLowerCase()) {
+			case 'clear':
+				return 'clear-sky';
+			case 'clouds':
+				return 'clouds';
+			case 'rain':
+				return 'rainy';
+			default:
+				return '';
+		}
+	}
+
 	render() {
 		if (this.props.measure === 'fahrenheit') {
 			const data = this.state.imperialData;
 			return (
 				<div className='single-day-cont'>
-					<div className='day-cont'>
+					<div className={'day-cont' + ' ' + this.setClass()}>
 						<div className='city-name'>
 							<h1>{data.cityName}</h1>
 						</div>
@@ -82,7 +94,7 @@ class DayWeather extends React.Component {
 			const data = this.state.metricData;
 			return (
 				<div className='single-day-cont'>
-					<div className='day-cont'>
+					<div className={'day-cont' + ' ' + this.setClass()}>
 						<div className='city-name'>
 							<h1>{data.cityName}</h1>
 						</div>
